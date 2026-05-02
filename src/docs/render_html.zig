@@ -783,7 +783,7 @@ fn renderSidebar(w: Writer, ctx: *const RenderContext, gpa: Allocator, base: []c
         // clicking a sidebar entry from another module's page navigates to
         // the correct module page (not just changes the fragment on the
         // current page).
-        var module_link_prefix = std.ArrayList(u8){};
+        var module_link_prefix = std.ArrayList(u8).empty;
         defer module_link_prefix.deinit(gpa);
         if (ctx.single_module_at_root) {
             if (base.len == 0) {
