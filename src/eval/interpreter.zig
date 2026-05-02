@@ -5870,10 +5870,10 @@ pub const Interpreter = struct {
     /// This is needed because asI128() bit-casts u128 values, so values > i128.max
     /// would compare as negative under signed comparison.
     fn orderIntStackValues(lhs: StackValue, rhs: StackValue) std.math.Order {
-        std.debug.assert(lhs.layout.tag == .scalar and lhs.layout.data.scalar.tag == .int);
-        std.debug.assert(rhs.layout.tag == .scalar and rhs.layout.data.scalar.tag == .int);
-        const lhs_prec = lhs.layout.data.scalar.data.int;
-        const rhs_prec = rhs.layout.data.scalar.data.int;
+        std.debug.assert(lhs.layout.tag == .scalar and lhs.layout.getScalar().tag == .int);
+        std.debug.assert(rhs.layout.tag == .scalar and rhs.layout.getScalar().tag == .int);
+        const lhs_prec = lhs.layout.getScalar().getInt();
+        const rhs_prec = rhs.layout.getScalar().getInt();
         if (lhs_prec == .u128 or rhs_prec == .u128) {
             return std.math.order(lhs.asU128(), rhs.asU128());
         }
@@ -5884,7 +5884,7 @@ pub const Interpreter = struct {
         // Handle int-vs-int with u128-aware comparison directly to avoid the i128 round-trip
         // in extractNumericValue, which is lossy for u128 values > i128.max.
         if (lhs.layout.tag == .scalar and rhs.layout.tag == .scalar and
-            lhs.layout.data.scalar.tag == .int and rhs.layout.data.scalar.tag == .int)
+            lhs.layout.getScalar().tag == .int and rhs.layout.getScalar().tag == .int)
         {
             return orderIntStackValues(lhs, rhs);
         }
@@ -13156,8 +13156,8 @@ pub const Interpreter = struct {
         var value = try self.pushRaw(layout_val, 0, final_rt_var);
         value.is_initialized = false;
         switch (layout_val.tag) {
-            .scalar => switch (layout_val.data.scalar.tag) {
-                .frac => switch (layout_val.data.scalar.data.frac) {
+            .scalar => switch (layout_val.getScalar().tag) {
+                .frac => switch (layout_val.getScalar().getFrac()) {
                     .f32 => {
                         const ptr = builtins.utils.alignedPtrCast(*f32, value.ptr.?, @src());
                         ptr.* = lit.value;
@@ -13211,8 +13211,8 @@ pub const Interpreter = struct {
         var value = try self.pushRaw(layout_val, 0, final_rt_var);
         value.is_initialized = false;
         switch (layout_val.tag) {
-            .scalar => switch (layout_val.data.scalar.tag) {
-                .frac => switch (layout_val.data.scalar.data.frac) {
+            .scalar => switch (layout_val.getScalar().tag) {
+                .frac => switch (layout_val.getScalar().getFrac()) {
                     .f32 => {
                         const ptr = builtins.utils.alignedPtrCast(*f32, value.ptr.?, @src());
                         ptr.* = @floatCast(lit.value);
