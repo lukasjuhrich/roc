@@ -146,31 +146,31 @@ pub const Work = struct {
     };
 
     pub fn initCapacity(allocator: std.mem.Allocator, capacity: usize) !Work {
-        var pending_containers = std.MultiArrayList(PendingContainerItem){};
+        var pending_containers: std.MultiArrayList(PendingContainerItem) = .empty;
         try pending_containers.ensureTotalCapacity(allocator, capacity);
 
-        var pending_record_fields = std.MultiArrayList(types.RecordField){};
+        var pending_record_fields: std.MultiArrayList(types.RecordField) = .empty;
         try pending_record_fields.ensureTotalCapacity(allocator, capacity);
 
-        var resolved_record_fields = std.MultiArrayList(ResolvedRecordField){};
+        var resolved_record_fields: std.MultiArrayList(ResolvedRecordField) = .empty;
         try resolved_record_fields.ensureTotalCapacity(allocator, capacity);
 
-        var pending_tags = std.MultiArrayList(types.Tag){};
+        var pending_tags: std.MultiArrayList(types.Tag) = .empty;
         try pending_tags.ensureTotalCapacity(allocator, capacity);
 
-        var resolved_tags = std.MultiArrayList(ResolvedTag){};
+        var resolved_tags: std.MultiArrayList(ResolvedTag) = .empty;
         try resolved_tags.ensureTotalCapacity(allocator, capacity);
 
-        var pending_tuple_fields = std.MultiArrayList(TupleField){};
+        var pending_tuple_fields: std.MultiArrayList(TupleField) = .empty;
         try pending_tuple_fields.ensureTotalCapacity(allocator, capacity);
 
-        var resolved_tuple_fields = std.MultiArrayList(ResolvedTupleField){};
+        var resolved_tuple_fields: std.MultiArrayList(ResolvedTupleField) = .empty;
         try resolved_tuple_fields.ensureTotalCapacity(allocator, capacity);
 
-        var pending_tag_union_variants = std.MultiArrayList(TagUnionVariant){};
+        var pending_tag_union_variants: std.MultiArrayList(TagUnionVariant) = .empty;
         try pending_tag_union_variants.ensureTotalCapacity(allocator, capacity);
 
-        var resolved_tag_union_variants = std.MultiArrayList(ResolvedTagUnionVariant){};
+        var resolved_tag_union_variants: std.MultiArrayList(ResolvedTagUnionVariant) = .empty;
         try resolved_tag_union_variants.ensureTotalCapacity(allocator, capacity);
 
         return .{

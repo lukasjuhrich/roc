@@ -595,7 +595,7 @@ pub fn SafeMultiList(comptime T: type) type {
 
         /// Initialize the `SafeMultiList` with the specified capacity.
         pub fn initCapacity(gpa: Allocator, capacity: usize) std.mem.Allocator.Error!SafeMultiList(T) {
-            var items = std.MultiArrayList(T){};
+            var items: std.MultiArrayList(T) = .empty;
             try items.ensureTotalCapacity(gpa, capacity);
             return .{
                 .items = items,
