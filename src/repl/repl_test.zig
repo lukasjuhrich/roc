@@ -191,7 +191,7 @@ test "Repl - U8.from_str result format" {
 }
 
 test "Repl - F32.from_str result format" {
-    try expectAllNative("F32.from_str(\"3.14\")", "Ok(3.140000104904175)");
+    try expectAllNative("F32.from_str(\"3.14\")", "Ok(3.14)");
 }
 
 test "Repl - list literals" {

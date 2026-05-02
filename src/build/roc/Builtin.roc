@@ -1312,6 +1312,20 @@ Builtin :: [].{
 			default : () -> U8
 			default = || 0
 
+			## The highest value representable by a [U8], which is `255`.
+			## ```roc
+			## expect U8.highest == 255
+			## ```
+			highest : U8
+			highest = 255
+
+			## The lowest value representable by a [U8], which is `0`.
+			## ```roc
+			## expect U8.lowest == 0
+			## ```
+			lowest : U8
+			lowest = 0
+
 			## Convert a [U8] to its decimal string representation.
 			## ```roc
 			## expect U8.to_str(42) == "42"
@@ -1367,6 +1381,28 @@ Builtin :: [].{
 			## expect !U8.is_lte(5, 3)
 			## ```
 			is_lte : U8, U8 -> Bool
+
+			## Returns the greater of two [U8] values.
+			## ```roc
+			## expect U8.max(5, 3) == 5
+			## ```
+			max : U8, U8 -> U8
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [U8] values.
+			## ```roc
+			## expect U8.min(5, 3) == 3
+			## ```
+			min : U8, U8 -> U8
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Add two [U8] values.
 			## ```roc
@@ -1567,6 +1603,20 @@ Builtin :: [].{
 			default : () -> I8
 			default = || 0
 
+			## The highest value representable by an [I8], which is `127`.
+			## ```roc
+			## expect I8.highest == 127
+			## ```
+			highest : I8
+			highest = 127
+
+			## The lowest value representable by an [I8], which is `-128`.
+			## ```roc
+			## expect I8.lowest == -128
+			## ```
+			lowest : I8
+			lowest = -128
+
 			## Convert an [I8] to its decimal string representation.
 			## ```roc
 			## expect I8.to_str(42) == "42"
@@ -1641,6 +1691,32 @@ Builtin :: [].{
 			## expect !I8.is_lte(5, 3)
 			## ```
 			is_lte : I8, I8 -> Bool
+
+			## Returns the greater of two [I8] values.
+			## ```roc
+			## expect I8.max(5, 3) == 5
+			##
+			## expect I8.max(-3, -1) == -1
+			## ```
+			max : I8, I8 -> I8
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [I8] values.
+			## ```roc
+			## expect I8.min(5, 3) == 3
+			##
+			## expect I8.min(-3, -1) == -3
+			## ```
+			min : I8, I8 -> I8
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [I8]. Crashes on `-128`, since `128` does not fit in an [I8].
 			## ```roc
@@ -1947,6 +2023,20 @@ Builtin :: [].{
 			default : () -> U16
 			default = || 0
 
+			## The highest value representable by a [U16], which is `65535`.
+			## ```roc
+			## expect U16.highest == 65535
+			## ```
+			highest : U16
+			highest = 65535
+
+			## The lowest value representable by a [U16], which is `0`.
+			## ```roc
+			## expect U16.lowest == 0
+			## ```
+			lowest : U16
+			lowest = 0
+
 			## Convert a [U16] to its decimal string representation.
 			## ```roc
 			## expect U16.to_str(42) == "42"
@@ -2001,6 +2091,28 @@ Builtin :: [].{
 			## expect !U16.is_lte(5, 3)
 			## ```
 			is_lte : U16, U16 -> Bool
+
+			## Returns the greater of two [U16] values.
+			## ```roc
+			## expect U16.max(5, 3) == 5
+			## ```
+			max : U16, U16 -> U16
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [U16] values.
+			## ```roc
+			## expect U16.min(5, 3) == 3
+			## ```
+			min : U16, U16 -> U16
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Add two [U16] values.
 			## ```roc
@@ -2239,6 +2351,20 @@ Builtin :: [].{
 			default : () -> I16
 			default = || 0
 
+			## The highest value representable by an [I16], which is `32767`.
+			## ```roc
+			## expect I16.highest == 32767
+			## ```
+			highest : I16
+			highest = 32767
+
+			## The lowest value representable by an [I16], which is `-32768`.
+			## ```roc
+			## expect I16.lowest == -32768
+			## ```
+			lowest : I16
+			lowest = -32768
+
 			## Convert an [I16] to its decimal string representation.
 			## ```roc
 			## expect I16.to_str(42) == "42"
@@ -2313,6 +2439,32 @@ Builtin :: [].{
 			## expect !I16.is_lte(5, 3)
 			## ```
 			is_lte : I16, I16 -> Bool
+
+			## Returns the greater of two [I16] values.
+			## ```roc
+			## expect I16.max(5, 3) == 5
+			##
+			## expect I16.max(-3, -1) == -1
+			## ```
+			max : I16, I16 -> I16
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [I16] values.
+			## ```roc
+			## expect I16.min(5, 3) == 3
+			##
+			## expect I16.min(-3, -1) == -3
+			## ```
+			min : I16, I16 -> I16
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [I16]. Crashes on `-32768`, since `32768` does not fit in an [I16].
 			## ```roc
@@ -2636,6 +2788,20 @@ Builtin :: [].{
 			default : () -> U32
 			default = || 0
 
+			## The highest value representable by a [U32], which is `4294967295`.
+			## ```roc
+			## expect U32.highest == 4294967295
+			## ```
+			highest : U32
+			highest = 4294967295
+
+			## The lowest value representable by a [U32], which is `0`.
+			## ```roc
+			## expect U32.lowest == 0
+			## ```
+			lowest : U32
+			lowest = 0
+
 			## Convert a [U32] to its decimal string representation.
 			## ```roc
 			## expect U32.to_str(42) == "42"
@@ -2690,6 +2856,28 @@ Builtin :: [].{
 			## expect !U32.is_lte(5, 3)
 			## ```
 			is_lte : U32, U32 -> Bool
+
+			## Returns the greater of two [U32] values.
+			## ```roc
+			## expect U32.max(5, 3) == 5
+			## ```
+			max : U32, U32 -> U32
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [U32] values.
+			## ```roc
+			## expect U32.min(5, 3) == 3
+			## ```
+			min : U32, U32 -> U32
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Add two [U32] values.
 			## ```roc
@@ -2966,6 +3154,20 @@ Builtin :: [].{
 			default : () -> I32
 			default = || 0
 
+			## The highest value representable by an [I32], which is `2147483647`.
+			## ```roc
+			## expect I32.highest == 2147483647
+			## ```
+			highest : I32
+			highest = 2147483647
+
+			## The lowest value representable by an [I32], which is `-2147483648`.
+			## ```roc
+			## expect I32.lowest == -2147483648
+			## ```
+			lowest : I32
+			lowest = -2147483648
+
 			## Convert an [I32] to its decimal string representation.
 			## ```roc
 			## expect I32.to_str(42) == "42"
@@ -3040,6 +3242,32 @@ Builtin :: [].{
 			## expect !I32.is_lte(5, 3)
 			## ```
 			is_lte : I32, I32 -> Bool
+
+			## Returns the greater of two [I32] values.
+			## ```roc
+			## expect I32.max(5, 3) == 5
+			##
+			## expect I32.max(-3, -1) == -1
+			## ```
+			max : I32, I32 -> I32
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [I32] values.
+			## ```roc
+			## expect I32.min(5, 3) == 3
+			##
+			## expect I32.min(-3, -1) == -3
+			## ```
+			min : I32, I32 -> I32
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [I32]. Crashes on `-2147483648`, since `2147483648` does not fit in an [I32].
 			## ```roc
@@ -3382,6 +3610,21 @@ Builtin :: [].{
 			default : () -> U64
 			default = || 0
 
+			## The highest value representable by a [U64], which is
+			## `18446744073709551615`.
+			## ```roc
+			## expect U64.highest == 18446744073709551615
+			## ```
+			highest : U64
+			highest = 18446744073709551615
+
+			## The lowest value representable by a [U64], which is `0`.
+			## ```roc
+			## expect U64.lowest == 0
+			## ```
+			lowest : U64
+			lowest = 0
+
 			## Convert a [U64] to its decimal string representation.
 			## ```roc
 			## expect U64.to_str(42) == "42"
@@ -3436,6 +3679,28 @@ Builtin :: [].{
 			## expect !U64.is_lte(5, 3)
 			## ```
 			is_lte : U64, U64 -> Bool
+
+			## Returns the greater of two [U64] values.
+			## ```roc
+			## expect U64.max(5, 3) == 5
+			## ```
+			max : U64, U64 -> U64
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [U64] values.
+			## ```roc
+			## expect U64.min(5, 3) == 3
+			## ```
+			min : U64, U64 -> U64
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Add two [U64] values.
 			## ```roc
@@ -3751,6 +4016,22 @@ Builtin :: [].{
 			default : () -> I64
 			default = || 0
 
+			## The highest value representable by an [I64], which is
+			## `9223372036854775807`.
+			## ```roc
+			## expect I64.highest == 9223372036854775807
+			## ```
+			highest : I64
+			highest = 9223372036854775807
+
+			## The lowest value representable by an [I64], which is
+			## `-9223372036854775808`.
+			## ```roc
+			## expect I64.lowest == -9223372036854775808
+			## ```
+			lowest : I64
+			lowest = -9223372036854775808
+
 			## Convert an [I64] to its decimal string representation.
 			## ```roc
 			## expect I64.to_str(42) == "42"
@@ -3825,6 +4106,32 @@ Builtin :: [].{
 			## expect !I64.is_lte(5, 3)
 			## ```
 			is_lte : I64, I64 -> Bool
+
+			## Returns the greater of two [I64] values.
+			## ```roc
+			## expect I64.max(5, 3) == 5
+			##
+			## expect I64.max(-3, -1) == -1
+			## ```
+			max : I64, I64 -> I64
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [I64] values.
+			## ```roc
+			## expect I64.min(5, 3) == 3
+			##
+			## expect I64.min(-3, -1) == -3
+			## ```
+			min : I64, I64 -> I64
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [I64]. Crashes on `-9223372036854775808`, since
 			## `9223372036854775808` does not fit in an [I64].
@@ -4184,6 +4491,21 @@ Builtin :: [].{
 			default : () -> U128
 			default = || 0
 
+			## The highest value representable by a [U128], which is
+			## `340282366920938463463374607431768211455`.
+			## ```roc
+			## expect U128.highest == 340282366920938463463374607431768211455
+			## ```
+			highest : U128
+			highest = 340282366920938463463374607431768211455
+
+			## The lowest value representable by a [U128], which is `0`.
+			## ```roc
+			## expect U128.lowest == 0
+			## ```
+			lowest : U128
+			lowest = 0
+
 			## Convert a [U128] to its decimal string representation.
 			## ```roc
 			## expect U128.to_str(42) == "42"
@@ -4238,6 +4560,28 @@ Builtin :: [].{
 			## expect !U128.is_lte(5, 3)
 			## ```
 			is_lte : U128, U128 -> Bool
+
+			## Returns the greater of two [U128] values.
+			## ```roc
+			## expect U128.max(5, 3) == 5
+			## ```
+			max : U128, U128 -> U128
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [U128] values.
+			## ```roc
+			## expect U128.min(5, 3) == 3
+			## ```
+			min : U128, U128 -> U128
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Add two [U128] values.
 			## ```roc
@@ -4590,6 +4934,22 @@ Builtin :: [].{
 			default : () -> I128
 			default = || 0
 
+			## The highest value representable by an [I128], which is
+			## `170141183460469231731687303715884105727`.
+			## ```roc
+			## expect I128.highest == 170141183460469231731687303715884105727
+			## ```
+			highest : I128
+			highest = 170141183460469231731687303715884105727
+
+			## The lowest value representable by an [I128], which is
+			## `-170141183460469231731687303715884105728`.
+			## ```roc
+			## expect I128.lowest == -170141183460469231731687303715884105728
+			## ```
+			lowest : I128
+			lowest = -170141183460469231731687303715884105728
+
 			## Convert an [I128] to its decimal string representation.
 			## ```roc
 			## expect I128.to_str(42) == "42"
@@ -4664,6 +5024,32 @@ Builtin :: [].{
 			## expect !I128.is_lte(5, 3)
 			## ```
 			is_lte : I128, I128 -> Bool
+
+			## Returns the greater of two [I128] values.
+			## ```roc
+			## expect I128.max(5, 3) == 5
+			##
+			## expect I128.max(-3, -1) == -1
+			## ```
+			max : I128, I128 -> I128
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [I128] values.
+			## ```roc
+			## expect I128.min(5, 3) == 3
+			##
+			## expect I128.min(-3, -1) == -3
+			## ```
+			min : I128, I128 -> I128
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [I128]. Crashes on `-170141183460469231731687303715884105728`,
 			## since `170141183460469231731687303715884105728` does not fit in an [I128].
@@ -5050,6 +5436,22 @@ Builtin :: [].{
 			default : () -> Dec
 			default = || 0.0
 
+			## The highest value representable by a [Dec], which is
+			## `170141183460469231731.687303715884105727`.
+			## ```roc
+			## expect Dec.highest == 170141183460469231731.687303715884105727
+			## ```
+			highest : Dec
+			highest = 170141183460469231731.687303715884105727
+
+			## The lowest value representable by a [Dec], which is
+			## `-170141183460469231731.687303715884105728`.
+			## ```roc
+			## expect Dec.lowest == -170141183460469231731.687303715884105728
+			## ```
+			lowest : Dec
+			lowest = -170141183460469231731.687303715884105728
+
 			## Convert a [Dec] to its decimal string representation.
 			## ```roc
 			## expect Dec.to_str(42.5) == "42.5"
@@ -5124,6 +5526,32 @@ Builtin :: [].{
 			## expect !Dec.is_lte(5.0, 3.0)
 			## ```
 			is_lte : Dec, Dec -> Bool
+
+			## Returns the greater of two [Dec] values.
+			## ```roc
+			## expect Dec.max(5, 3) == 5
+			##
+			## expect Dec.max(-3, -1) == -1
+			## ```
+			max : Dec, Dec -> Dec
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [Dec] values.
+			## ```roc
+			## expect Dec.min(5, 3) == 3
+			##
+			## expect Dec.min(-3, -1) == -3
+			## ```
+			min : Dec, Dec -> Dec
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate a [Dec].
 			## ```roc
@@ -5518,6 +5946,22 @@ Builtin :: [].{
 			default : () -> F32
 			default = || 0.0
 
+			## The highest finite value representable by an [F32], which is
+			## `3.40282347e38`.
+			## ```roc
+			## expect F32.highest == 3.40282347e38
+			## ```
+			highest : F32
+			highest = 3.40282347e38
+
+			## The lowest finite value representable by an [F32], which is
+			## `-3.40282347e38`.
+			## ```roc
+			## expect F32.lowest == -3.40282347e38
+			## ```
+			lowest : F32
+			lowest = -3.40282347e38
+
 			## Convert an [F32] to its decimal string representation.
 			## ```roc
 			## expect F32.to_str(42.5) == "42.5"
@@ -5593,6 +6037,32 @@ Builtin :: [].{
 			## expect !F32.is_lte(5.0, 3.0)
 			## ```
 			is_lte : F32, F32 -> Bool
+
+			## Returns the greater of two [F32] values.
+			## ```roc
+			## expect F32.max(5, 3) == 5
+			##
+			## expect F32.max(-3, -1) == -1
+			## ```
+			max : F32, F32 -> F32
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [F32] values.
+			## ```roc
+			## expect F32.min(5, 3) == 3
+			##
+			## expect F32.min(-3, -1) == -3
+			## ```
+			min : F32, F32 -> F32
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [F32]. Flips the sign bit, so negating `0.0` produces
 			## `-0.0` and negating `NaN` produces `NaN`.
@@ -5941,6 +6411,22 @@ Builtin :: [].{
 			default : () -> F64
 			default = || 0.0
 
+			## The highest finite value representable by an [F64], which is
+			## `1.7976931348623157e308`.
+			## ```roc
+			## expect F64.highest == 1.7976931348623157e308
+			## ```
+			highest : F64
+			highest = 1.7976931348623157e308
+
+			## The lowest finite value representable by an [F64], which is
+			## `-1.7976931348623157e308`.
+			## ```roc
+			## expect F64.lowest == -1.7976931348623157e308
+			## ```
+			lowest : F64
+			lowest = -1.7976931348623157e308
+
 			## Convert an [F64] to its decimal string representation.
 			## ```roc
 			## expect F64.to_str(42.5) == "42.5"
@@ -6016,6 +6502,32 @@ Builtin :: [].{
 			## expect !F64.is_lte(5.0, 3.0)
 			## ```
 			is_lte : F64, F64 -> Bool
+
+			## Returns the greater of two [F64] values.
+			## ```roc
+			## expect F64.max(5, 3) == 5
+			##
+			## expect F64.max(-3, -1) == -1
+			## ```
+			max : F64, F64 -> F64
+			max = |a, b|
+				if a > b
+					a
+				else
+					b
+
+			## Returns the smaller of two [F64] values.
+			## ```roc
+			## expect F64.min(5, 3) == 3
+			##
+			## expect F64.min(-3, -1) == -3
+			## ```
+			min : F64, F64 -> F64
+			min = |a, b|
+				if a < b
+					a
+				else
+					b
 
 			## Negate an [F64]. Flips the sign bit, so negating `0.0` produces
 			## `-0.0` and negating `NaN` produces `NaN`.
