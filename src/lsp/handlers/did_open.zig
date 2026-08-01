@@ -3,6 +3,8 @@
 const std = @import("std");
 const Allocator = std.mem.Allocator;
 
+const Diagnostics = @import("../diagnostics.zig");
+
 /// Handler for `textDocument/didOpen` notifications.
 pub fn handler(comptime ServerType: type) type {
     return struct {
@@ -39,6 +41,7 @@ pub fn handler(comptime ServerType: type) type {
             };
 
             try self.doc_store.upsert(uri, version, text);
+            try self.publishDiagnostics(Diagnostics.PublishDiagnostics{ .uri = uri, .diagnostics = &.{} });
 
             self.onDocumentChanged(uri);
         }
